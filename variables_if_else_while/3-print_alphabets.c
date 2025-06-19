@@ -3,7 +3,7 @@
 
 /**
  * main - Entry point
- * Description : Write a program that prints the alphabet in lowercase and uppercase.
+ * Description : Write a program that prints the alphabet in lower&uppercase.
  * Return: Always 0 (sucess)
  */
 int main(void)
