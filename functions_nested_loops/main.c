@@ -1,31 +1,15 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * main - tests print_sign
+ * main - test _abs function
  *
  * Return: Always 0
  */
 int main(void)
 {
-    int r;
-
-    r = print_sign(98);
-    _putchar(',');
-    _putchar(' ');
-    _putchar(r + '0');
-    _putchar('\n');
-
-    r = print_sign(0);
-    _putchar(',');
-    _putchar(' ');
-    _putchar(r + '0');
-    _putchar('\n');
-
-    r = print_sign(-5);
-    _putchar(',');
-    _putchar(' ');
-    _putchar(r + '0'); /* Attention : affichera 255 pour -1 */
-    _putchar('\n');
-
+    printf("_abs(5) = %d\n", _abs(5));   /* 5 */
+    printf("_abs(-8) = %d\n", _abs(-8)); /* 8 */
+    printf("_abs(0) = %d\n", _abs(0));   /* 0 */
     return (0);
 }
