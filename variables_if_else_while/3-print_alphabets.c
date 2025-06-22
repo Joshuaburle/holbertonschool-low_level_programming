@@ -8,15 +8,17 @@
  */
 int main(void)
 {
-char alphabet, alphABET;
-for (alphabet = 'a'; alphabet <= 'z' ; alphabet++)
-{
-putchar(alphabet);
-}
-for (alphABET = 'A'; alphABET <= 'Z' ; alphABET++)
-{
-putchar(alphABET);
-}
-putchar('\n');
-return (0);
+	char alphabet, alphABET;
+
+	for (alphabet = 'a'; alphabet <= 'z' ; alphabet++)
+	{
+		putchar(alphabet);
+	}
+	for (alphABET = 'A'; alphABET <= 'Z' ; alphABET++)
+	{
+		putchar(alphABET);
+	}
+	putchar('\n');
+
+	return (0);
 }
