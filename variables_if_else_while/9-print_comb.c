@@ -1,23 +1,25 @@
 #include <stdio.h>
 
 /**
- * main - Prints the alphabet in lowercase, except for q and e.
- * Description : program that prints all single digit of 10 to 0
+ * main - Entry point
+ * Description : Prints all possible combinations
  * Return: Always 0.
  */
 int main(void)
 {
-	int x;
+	int num;
 
-	for (x = 0; x < 10; x++)
+	for (num = 0; num <= 9; num++)
 	{
-		printf("%d", x);
-		if (x < 9)
-		{
-			printf(", ");
-		}
+		putchar((num % 10) + '0');
+		if (num == 9)
+			continue;
+
+		putchar(',');
+		putchar(' ');
 	}
-	printf("\n");
+
+	putchar('\n');
 
 	return (0);
 }
