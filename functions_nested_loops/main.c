@@ -1,20 +1,14 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - test add function
+ * main - test print_to_98
  *
  * Return: Always 0
  */
 int main(void)
 {
-    int sum;
-
-    sum = add(5, 3);
-    printf("5 + 3 = %d\n", sum);
-
-    sum = add(-4, 10);
-    printf("-4 + 10 = %d\n", sum);
-
+    print_to_98(0);
+    print_to_98(111);
+    print_to_98(98);
     return (0);
 }
