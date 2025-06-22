@@ -2,14 +2,25 @@
 #include <stdio.h>
 
 /**
- * main - test _abs function
+ * main - test print_last_digit
  *
  * Return: Always 0
  */
 int main(void)
 {
-    printf("_abs(5) = %d\n", _abs(5));   /* 5 */
-    printf("_abs(-8) = %d\n", _abs(-8)); /* 8 */
-    printf("_abs(0) = %d\n", _abs(0));   /* 0 */
+    int r;
+
+    r = print_last_digit(98);
+    _putchar(',');
+    _putchar(' ');
+    _putchar(r + '0');
+    _putchar('\n');
+
+    r = print_last_digit(-1024);
+    _putchar(',');
+    _putchar(' ');
+    _putchar(r + '0');
+    _putchar('\n');
+
     return (0);
 }
