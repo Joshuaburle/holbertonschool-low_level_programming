@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * main - calls jack_bauer
+ * main - entry point to test times_table
  *
  * Return: Always 0
  */
 int main(void)
 {
-    jack_bauer();
+    times_table();
     return (0);
 }
