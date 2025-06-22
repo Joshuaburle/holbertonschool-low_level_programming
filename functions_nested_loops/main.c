@@ -1,16 +1,31 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - tests _isalpha function
+ * main - tests print_sign
  *
  * Return: Always 0
  */
 int main(void)
 {
-    printf("'a' -> %d\n", _isalpha('a')); /* 1 */
-    printf("'Z' -> %d\n", _isalpha('Z')); /* 1 */
-    printf("'9' -> %d\n", _isalpha('9')); /* 0 */
-    printf("'?' -> %d\n", _isalpha('?')); /* 0 */
+    int r;
+
+    r = print_sign(98);
+    _putchar(',');
+    _putchar(' ');
+    _putchar(r + '0');
+    _putchar('\n');
+
+    r = print_sign(0);
+    _putchar(',');
+    _putchar(' ');
+    _putchar(r + '0');
+    _putchar('\n');
+
+    r = print_sign(-5);
+    _putchar(',');
+    _putchar(' ');
+    _putchar(r + '0'); /* Attention : affichera 255 pour -1 */
+    _putchar('\n');
+
     return (0);
 }
