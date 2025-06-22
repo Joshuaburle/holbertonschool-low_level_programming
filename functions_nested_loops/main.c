@@ -2,17 +2,15 @@
 #include <stdio.h>
 
 /**
- * main - test _islower
+ * main - tests _isalpha function
  *
  * Return: Always 0
  */
 int main(void)
 {
-    char test1 = 'g';
-    char test2 = 'G';
-
-    printf("%c: %d\n", test1, _islower(test1));
-    printf("%c: %d\n", test2, _islower(test2)); 
-
+    printf("'a' -> %d\n", _isalpha('a')); /* 1 */
+    printf("'Z' -> %d\n", _isalpha('Z')); /* 1 */
+    printf("'9' -> %d\n", _isalpha('9')); /* 0 */
+    printf("'?' -> %d\n", _isalpha('?')); /* 0 */
     return (0);
 }
