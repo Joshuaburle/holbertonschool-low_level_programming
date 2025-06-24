@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 /**
-*print_numbers - Print all numbers from 0 to 9
+*print_most_numbers - Print all numbers from 0 to 9
+* without 2 & 4
 *Return: returns void
 */
 void print_most_numbers(void)
