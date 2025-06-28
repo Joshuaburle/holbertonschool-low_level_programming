@@ -11,23 +11,23 @@ int _atoi(char *s)
 {
 	int sign = 1;
 	int result = 0;
-	int found_digit = 0;
+	int find = 0;
 
 	while (*s)
 	{
-		if (!found_digit && *s == '-')
+		if (!find && *s == '-')
 		{
 			sign *= -1;
 		}
-		else if (!found_digit && *s == '+')
+		else if (!find && *s == '+')
 		{
 		}
 		else if (*s >= '0' && *s <= '9')
 		{
-			found_digit = 1;
+			find = 1;
 			result = result * 10 + (*s - '0');
 		}
-		else if (found_digit)
+		else if (find)
 		{
 			break;
 		}
