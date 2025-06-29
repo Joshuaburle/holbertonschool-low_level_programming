@@ -3,29 +3,27 @@
 #include <stdlib.h>
 
 /**
- * main - Generates random password for 101-crackme.
- * description: finds checksum value from objdump
+ * main - Generates random password for 101-crackme
+ * Description: finds checksum value from objdump
  * Return: 0
  */
 int main(void)
 {
 	int counter, sum, random;
+	char password[80];
 
 	sum = 0;
 	counter = 0;
 	random = 0;
 
-	char password[80];
-
 	srand(time(NULL));
 
 	while (sum < 2772)
 	{
-
 		if (2772 - sum < 48)
-	{
-		sum -= password[--counter];
-	}
+		{
+			sum -= password[--counter];
+		}
 		else if (2772 - sum <= 126)
 		{
 			random = 2772 - sum;
