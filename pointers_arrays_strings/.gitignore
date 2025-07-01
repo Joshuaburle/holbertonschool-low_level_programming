@@ -1,3 +1,5 @@
 tests/
 main.c
-_putchar.c
+home.c
+house.c
+_putchar.c  
