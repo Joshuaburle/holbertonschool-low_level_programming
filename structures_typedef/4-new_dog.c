@@ -9,7 +9,7 @@
  * @owner: owner
  * Return: pointer to the new dog_t or NULL if it fails
  */
-dog_t *new_dog(const char *name, float age, const char *owner)
+dog_t *new_dog(char *name, float age, char *owner)
 {
     dog_t *dog_instance;
     char *name_copy;
