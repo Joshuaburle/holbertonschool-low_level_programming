@@ -9,22 +9,22 @@
  * @owner: owner
  * Return: pointer to the new dog_t or NULL if it fails
  */
-dog_t *new_dog(char *name, float age, char *owner)
+dog_t *new_dog(const char *name, float age, const char *owner)
 {
-	dog_t *new_dog;
+	dog_t *dog_instance;
 	char *name_copy, *owner_copy;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	dog_instance = malloc(sizeof(dog_t));
+	if (dog_instance == NULL)
 		return (NULL);
 
 	name_copy = malloc(strlen(name) + 1);
 	if (name_copy == NULL)
 	{
-		free(new_dog);
+		free(dog_instance);
 		return (NULL);
 	}
 	strcpy(name_copy, name);
@@ -33,14 +33,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (owner_copy == NULL)
 	{
 		free(name_copy);
-		free(new_dog);
+		free(dog_instance);
 		return (NULL);
 	}
 	strcpy(owner_copy, owner);
 
-	new_dog->name = name_copy;
-	new_dog->age = age;
-	new_dog->owner = owner_copy;
+	dog_instance->name = name_copy;
+	dog_instance->age = age;
+	dog_instance->owner = owner_copy;
 
-	return (new_dog);
+	return (dog_instance);
 }
