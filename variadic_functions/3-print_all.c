@@ -4,7 +4,7 @@
 
 /**
  * print_all - Prints anything based on a format string.
- * @format: List of types of arguments passed.
+ * @format: List of argument types.
  */
 void print_all(const char * const format, ...)
 {
@@ -17,26 +17,34 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		if (format[i] == 'c' || format[i] == 'i' ||
-			format[i] == 'f' || format[i] == 's')
+		while (format[i] && !(format[i] == 'c' || format[i] == 'i' ||
+			format[i] == 'f' || format[i] == 's'))
+			i++;
+
+		if (format[i])
 		{
 			printf("%s", sep);
-			if (format[i] == 'c')
-				printf("%c", va_arg(args, int));
-			if (format[i] == 'i')
-				printf("%d", va_arg(args, int));
-			if (format[i] == 'f')
-				printf("%f", va_arg(args, double));
-			if (format[i] == 's')
+			switch (format[i])
 			{
+			case 'c':
+				printf("%c", va_arg(args, int));
+				break;
+			case 'i':
+				printf("%d", va_arg(args, int));
+				break;
+			case 'f':
+				printf("%f", va_arg(args, double));
+				break;
+			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
 					str = "(nil)";
 				printf("%s", str);
+				break;
 			}
 			sep = ", ";
+			i++;
 		}
-		i++;
 	}
 
 	va_end(args);
