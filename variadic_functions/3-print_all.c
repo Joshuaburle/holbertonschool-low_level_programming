@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-
-typedef void (*printer)(va_list *args);
+#include "variadic_functions.h"
 
 void print_char(va_list *args)
 {
@@ -28,18 +27,23 @@ void print_string(va_list *args)
 		printf("%s", str);
 }
 
+/**
+ * print_all - prints anything based on format string
+ * @format: list of types of arguments
+ */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0;
+	int i = 0, j;
 	char *sep = "";
 
-	typedefs struct {
+	typedef struct printer_s
+	{
 		char token;
-		printer func;
-	} print_map;
+		void (*f)(va_list *);
+	} printer_t;
 
-	print_map printers[] = {
+	printer_t printers[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -51,14 +55,13 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		int j = 0;
-
+		j = 0;
 		while (printers[j].token)
 		{
 			if (format[i] == printers[j].token)
 			{
 				printf("%s", sep);
-				printers[j].func(&args);
+				printers[j].f(&args);
 				sep = ", ";
 				break;
 			}
