@@ -1,40 +1,68 @@
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 
-/**
- * print_all - prints anything based on format string
- * @format: list of types of arguments
- */
+typedef void (*printer)(va_list *args);
+
+void print_char(va_list *args)
+{
+	printf("%c", va_arg(*args, int));
+}
+
+void print_int(va_list *args)
+{
+	printf("%d", va_arg(*args, int));
+}
+
+void print_float(va_list *args)
+{
+	printf("%f", va_arg(*args, double));
+}
+
+void print_string(va_list *args)
+{
+	char *str = va_arg(*args, char *);
+
+	if (!str)
+		printf("(nil)");
+	else
+		printf("%s", str);
+}
+
 void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i = 0;
-	char *str;
 	char *sep = "";
+
+	typedefs struct {
+		char token;
+		printer func;
+	} print_map;
+
+	print_map printers[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		{'\0', NULL}
+	};
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		if (format[i] == 'c' || format[i] == 'i' ||
-		    format[i] == 'f' || format[i] == 's')
+		int j = 0;
+
+		while (printers[j].token)
 		{
-			printf("%s", sep);
-			if (format[i] == 'c')
-				printf("%c", va_arg(args, int));
-			if (format[i] == 'i')
-				printf("%d", va_arg(args, int));
-			if (format[i] == 'f')
-				printf("%f", va_arg(args, double));
-			if (format[i] == 's')
+			if (format[i] == printers[j].token)
 			{
-				str = va_arg(args, char *);
-				if (str == NULL)
-					printf("(nil)");
-				else
-					printf("%s", str);
+				printf("%s", sep);
+				printers[j].func(&args);
+				sep = ", ";
+				break;
 			}
-			sep = ", ";
+			j++;
 		}
 		i++;
 	}
