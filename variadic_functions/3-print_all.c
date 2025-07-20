@@ -61,7 +61,8 @@ void print_all(const char * const format, ...)
 	int i = 0, j;
 	char *separator = "";
 	char tokens[] = "cifs";
-	 void (*functions[])(va_list *) = {print_char, print_int,
+
+	void (*functions[])(va_list *) = {print_char, print_int,
 		print_float, print_string};
 
 	va_start(args, format);

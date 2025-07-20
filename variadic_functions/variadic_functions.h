@@ -47,12 +47,8 @@ struct printer_s
 
 /**
  * print_all - prints anything based on a format string
- * @format: string containing format specifiers:
- *          c: char
- *          i: int
- *          f: float
- *          s: string
+ * @format: string containing format specifiers
  */
 void print_all(const char * const format, ...);
 
-#endif /* VARIADIC_FUNCTIONS_H */
+#endif
