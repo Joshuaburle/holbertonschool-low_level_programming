@@ -60,24 +60,20 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i = 0, j;
 	char *separator = "";
-	struct printer_s printers[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		{'\0', NULL}
-	};
+	char tokens[] = "cifs";
+	 void (*functions[])(va_list *) = {print_char, print_int,
+		print_float, print_string};
 
 	va_start(args, format);
 	while (format && format[i])
 	{
 		j = 0;
-		while (printers[j].token)
+		while (tokens[j])
 		{
-			if (format[i] == printers[j].token)
+			if (format[i] == tokens[j])
 			{
 				printf("%s", separator);
-				printers[j].f(&args);
+				functions[j](&args);
 				separator = ", ";
 				break;
 			}
