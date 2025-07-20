@@ -1,46 +1,38 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
- * print_all - Prints any type based on a format string
- * @format: A list of argument types passed to the function
+ * print_all - prints anything
+ * @format: list of types of arguments passed
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	unsigned int i = 0;
-	char *str, *sep = "";
-	char type;
+	unsigned int i = 0, j;
+	char *separator = "";
+	printer_t printers[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+	};
 
 	va_start(args, format);
-
 	while (format && format[i])
 	{
-		type = format[i];
-
-		if (type == 'c' || type == 'i' || type == 'f' || type == 's')
+		j = 0;
+		while (j < 4)
 		{
-			printf("%s", sep);
-
-			if (type == 'c')
-				printf("%c", va_arg(args, int));
-			if (type == 'i')
-				printf("%d", va_arg(args, int));
-			if (type == 'f')
-				printf("%f", va_arg(args, double));
-			if (type == 's')
+			if (format[i] == *(printers[j].symbol))
 			{
-				str = va_arg(args, char *);
-				if (str == NULL)
-					str = "(nil)";
-				printf("%s", str);
+				print_separator(separator);
+				printers[j].print(args);
+				separator = ", ";
+				break;
 			}
-			sep = ", ";
+			j++;
 		}
 		i++;
 	}
-
 	va_end(args);
-	printf("\n");
+	_putchar('\n');
 }
