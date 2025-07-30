@@ -1,31 +1,41 @@
 #include <stdlib.h>
 #include "lists.h"
 
-/* Helper function to calculate the length of a string */
+/**
+ * _strlen - calculates the length of a string
+ * @s: string to calculate
+ *
+ * Return: length of the string
+ */
 static unsigned int _strlen(const char *s)
 {
-    unsigned int i = 0;
+	unsigned int i = 0;
 
-    while (s[i])
-        i++;
-    return i;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-/* Helper function to duplicate a string */
+/**
+ * _strdup - duplicates a string
+ * @str: string to duplicate
+ *
+ * Return: pointer to the duplicated string, or NULL if fails
+ */
 static char *_strdup(const char *str)
 {
-    unsigned int len = _strlen(str);
-    char *dup = malloc(len + 1);
-    unsigned int i;
+	unsigned int len = _strlen(str);
+	char *dup = malloc(len + 1);
+	unsigned int i;
 
-    if (!dup)
-        return NULL;
+	if (!dup)
+		return (NULL);
 
-    for (i = 0; i < len; i++)
-        dup[i] = str[i];
-    dup[len] = '\0';
+	for (i = 0; i < len; i++)
+		dup[i] = str[i];
+	dup[len] = '\0';
 
-    return dup;
+	return (dup);
 }
 
 /**
@@ -37,26 +47,26 @@ static char *_strdup(const char *str)
  */
 list_t *add_node(list_t **head, const char *str)
 {
-    list_t *new_node;
-    unsigned int len;
+	list_t *new_node;
+	unsigned int len;
 
-    if (!str)
-        return NULL;
+	if (!str)
+		return (NULL);
 
-    new_node = malloc(sizeof(list_t));
-    if (!new_node)
-        return NULL;
+	new_node = malloc(sizeof(list_t));
+	if (!new_node)
+		return (NULL);
 
-    len = _strlen(str);
-    new_node->str = _strdup(str);
-    if (!new_node->str)
-    {
-        free(new_node);
-        return NULL;
-    }
-    new_node->len = len;
-    new_node->next = *head;
-    *head = new_node;
+	len = _strlen(str);
+	new_node->str = _strdup(str);
+	if (!new_node->str)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->len = len;
+	new_node->next = *head;
+	*head = new_node;
 
-    return new_node;
+	return (new_node);
 }
