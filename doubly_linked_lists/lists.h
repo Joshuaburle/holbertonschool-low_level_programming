@@ -60,4 +60,40 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
  */
 void free_dlistint(dlistint_t *head);
 
+/**
+ * get_dnodeint_at_index - returns the nth node of a dlistint_t linked list
+ * @head: pointer to the head of the list
+ * @index: index of the node, starting from 0
+ *
+ * Return: the nth node, or NULL if the node does not exist
+ */
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+
+/**
+ * sum_dlistint - returns the sum of all the data (n) of a dlistint_t list
+ * @head: pointer to the head of the list
+ *
+ * Return: the sum of all data, or 0 if the list is empty
+ */
+int sum_dlistint(dlistint_t *head);
+
+/**
+ * insert_dnodeint_at_index - inserts a new node at a given position
+ * @h: pointer to pointer to the head of the list
+ * @idx: index where the new node should be added (starts at 0)
+ * @n: value to store in the new node
+ *
+ * Return: the address of the new node, or NULL if it failed
+ */
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
+
+/**
+ * delete_dnodeint_at_index - deletes the node at index of a dlistint_t list
+ * @head: pointer to pointer to the head of the list
+ * @index: index of the node that should be deleted (starts at 0)
+ *
+ * Return: 1 if it succeeded, -1 if it failed
+ */
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
+
 #endif

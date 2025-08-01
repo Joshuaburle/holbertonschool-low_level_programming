@@ -55,6 +55,30 @@ Function that frees a dlistint_t list.
 - **File:** 4-free_dlistint.c
 - **Prototype:** `void free_dlistint(dlistint_t *head);`
 
+### 5. Get node at index
+Function that returns the nth node of a dlistint_t linked list.
+- **File:** 5-get_dnodeint.c
+- **Prototype:** `dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);`
+- **Returns:** the nth node, or NULL if the node does not exist
+
+### 6. Sum list
+Function that returns the sum of all the data (n) of a dlistint_t linked list.
+- **File:** 6-sum_dlistint.c
+- **Prototype:** `int sum_dlistint(dlistint_t *head);`
+- **Returns:** the sum of all data, or 0 if the list is empty
+
+### 7. Insert at index
+Function that inserts a new node at a given position.
+- **File:** 7-insert_dnodeint.c
+- **Prototype:** `dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);`
+- **Returns:** the address of the new node, or NULL if it failed
+
+### 8. Delete at index
+Function that deletes the node at index of a dlistint_t linked list.
+- **File:** 8-delete_dnodeint.c
+- **Prototype:** `int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);`
+- **Returns:** 1 if it succeeded, -1 if it failed
+
 ## Compilation
 
 ```bash
