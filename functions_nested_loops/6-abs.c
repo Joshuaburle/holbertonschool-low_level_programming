@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_sign - make a function to know the sign
- *@n: check what return 0
+ *_abs - Return the absolute value of an int
+ *@n: check what return n
  *
- * Return: 1 positive 0 equal -1 negative
+ * Return: n to see if its absolut
  */
 
 int _abs(int n)
@@ -13,6 +13,6 @@ int _abs(int n)
 	{
 		n = -n;
 	}
-	return(n);
+	return (n);
 }
 
