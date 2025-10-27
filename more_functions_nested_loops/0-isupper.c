@@ -1,26 +1,22 @@
 #include "main.h"
 
 /**
+ * _isupper - checks for character if its lowercase or uppercase
+ * @c: search in ascii for A to Z
  *
- *
- *
- *
+ * Description: checks forlowercase or uppercase  for uppercase 0 for lowercase
+ * section header:
+ * Return: 1 for uppercase 0 for lowercase
  */
 
 int _isupper(int c)
 {
-    int i;
-
-    for (i = 'a'; i <= 'z'; c++)
-    {
-        if (c != i)
-        {
-            return (0);
-        }
-        else
-        {
-            return (1);
-        }
-    }
-    return (0);
+	if (c >= 'A' && c <= 'Z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
