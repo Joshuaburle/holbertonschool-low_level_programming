@@ -2,9 +2,12 @@
 
 
 /**
- * printf - 
+ *main - fizz buzz
  *
+ *Description: on a multiple of 3 write Fizz and Buzz for 5
  *
+ *section header:
+ *Return: always 0 on sucess
  */
 
 int main(void)
@@ -19,9 +22,8 @@ int main(void)
 			printf("Fizz ");
 		else if (i % 5 == 0)
 			printf("Buzz ");
-        else
-            printf("%d ", i);
-    }
-    printf("\n");
-    return (0);
+		else
+			printf("%d ", i);
+	}
+	return (0);
 }
