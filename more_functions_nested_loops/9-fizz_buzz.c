@@ -21,7 +21,7 @@ int main(void)
 		else if (i % 3 == 0)
 			printf("Fizz ");
 		else if (i == 100)
-			printf("%d \n", i);
+			printf("Buzz\n");
 		else if (i % 5 == 0)
 			printf("Buzz ");
 		else
