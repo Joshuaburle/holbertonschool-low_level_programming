@@ -1,34 +1,35 @@
 #include "main.h"
 
 /**
- * _sqrt_helper - recursive helper to find the natural square root
- * @n: number to compute the natural square root for
- * @i: current integer to try as potential square root
+ * function_helper - to make the operation for find the square root
+ * @x: The number for test
+ * @n: The number to get the square root
  *
- * Description: Tries successive integers starting at i. If i * i == n,
- * returns i. If i * i > n, returns -1 (no natural square root).
- * Return: natural square root of n, or -1 if none exists.
+ * Return: The natural square root of n, or -1 if it doesn't exist
  */
-static int _sqrt_helper(int j, int i)
+static int function_helper(int x, int n)
 {
-	if (i * i == j)
-		return (i);
-	if (i * i > j)
+	long prod = (long)x * x;
+
+	if (prod == n)
+		return (x);
+
+	if (prod > n)
 		return (-1);
-	return (_sqrt_helper(j, i + 1));
+
+	return (function_helper(x + 1, n));
 }
 
 /**
- * _sqrt_recursion - returns the natural square root of a number
- * @n: number to compute the natural square root for
+ * _sqrt_recursion - Return the natural square root of a number.
+ * @n: The number to compute the square root.
  *
- * Description: If n does not have a natural square root, the function
- * returns -1. Uses the recursive helper _sqrt_helper starting at 0.
- * Return: natural square root of n, or -1 if none exists.
+ * Return: The natural square root, or -1 if it does not exist.
  */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
-	return (_sqrt_helper(n, 0));
+
+	return (function_helper(0, n));
 }
