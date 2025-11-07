@@ -1,23 +1,21 @@
 #include "main.h"
 
 /**
- * function_helper - to make the operation for find the square root
+ * function_test - to make the operation for find the square root
  * @x: The number for test
  * @n: The number to get the square root
  *
  * Return: The natural square root of n, or -1 if it doesn't exist
  */
-static int function_helper(int x, int n)
+int function_test(int x, int n)
 {
-	long prod = (long)x * x;
-
-	if (prod == n)
+	if (x * x == n)
 		return (x);
 
-	if (prod > n)
+	if (x * x > n)
 		return (-1);
 
-	return (function_helper(x + 1, n));
+	return (function_test(x + 1, n));
 }
 
 /**
@@ -31,5 +29,5 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	return (function_helper(0, n));
+	return (function_test(0, n));
 }
