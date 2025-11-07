@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * _sqrt_helper - aide récursive pour trouver la racine carrée naturelle
- * @n: entier dont on cherche la racine carrée
- * @i: entier courant testé comme racine possible
+ * _sqrt_helper - recursive helper to find the natural square root
+ * @n: number to compute the natural square root for
+ * @i: current integer to try as potential square root
  *
- * Description: Essaie récursivement des entiers croissants à partir de i.
- * Si i * i == n retourne i. Si i * i > n retourne -1 (pas de
- * racine carrée naturelle).
- * Return: racine carrée naturelle de n, ou -1 si elle n'existe pas.
+ * Description: Tries successive integers starting at i. If i * i == n,
+ * returns i. If i * i > n, returns -1 (no natural square root).
+ * Return: natural square root of n, or -1 if none exists.
  */
 static int _sqrt_helper(int n, int i)
 {
@@ -20,13 +19,12 @@ static int _sqrt_helper(int n, int i)
 }
 
 /**
- * _sqrt_recursion - renvoie la racine carrée naturelle d'un entier
- * @n: entier dont on veut la racine carrée naturelle
+ * _sqrt_recursion - returns the natural square root of a number
+ * @n: number to compute the natural square root for
  *
- * Description: Si n n'a pas de racine carrée naturelle, la fonction
- * retourne -1. Utilise la fonction d'aide récursive _sqrt_helper
- * en commençant la recherche à 0.
- * Return: racine carrée naturelle de n, ou -1 si aucune.
+ * Description: If n does not have a natural square root, the function
+ * returns -1. Uses the recursive helper _sqrt_helper starting at 0.
+ * Return: natural square root of n, or -1 if none exists.
  */
 int _sqrt_recursion(int n)
 {
