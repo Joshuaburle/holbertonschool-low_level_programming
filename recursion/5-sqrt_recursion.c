@@ -9,13 +9,13 @@
  * returns i. If i * i > n, returns -1 (no natural square root).
  * Return: natural square root of n, or -1 if none exists.
  */
-static int _sqrt_helper(int n, int i)
+static int _sqrt_helper(int j, int i)
 {
-	if (i * i == n)
+	if (i * i == j)
 		return (i);
-	if (i * i > n)
+	if (i * i > j)
 		return (-1);
-	return (_sqrt_helper(n, i + 1));
+	return (_sqrt_helper(j, i + 1));
 }
 
 /**
