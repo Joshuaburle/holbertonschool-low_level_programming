@@ -21,14 +21,14 @@ char *_strdup(char *str)
 	while (str[i] != '\0')
 		i++;
 
-	dup = malloc(i + 1);
+	feldup = malloc(i + 1);
 
-	if (dup == NULL)
+	if (feldup == NULL)
 		return (NULL);
 
 	for (i = 0; str[i] != '\0'; i++)
-		dup[i] = str[i];
-	dup[i] = '\0';
+		feldup[i] = str[i];
+	feldup[i] = '\0';
 
-	return (dup);
+	return (feldup);
 }
