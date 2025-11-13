@@ -9,7 +9,7 @@
  *
  * Description: Define a new type struct dog
  */
-typedef struct dog_t
+typedef struct dog
 {
 	char *name;
 	char *owner;
