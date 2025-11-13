@@ -1,8 +1,6 @@
 #ifndef DOG_H
 #define DOG_H
 
-int _putchar(char c);
-
 /**
  * struct dog - my struct for my dog poppy :3
  * @name: name of the dog
