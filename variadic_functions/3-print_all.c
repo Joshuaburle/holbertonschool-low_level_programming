@@ -43,10 +43,8 @@ static void print_str(va_list *ap, const char *sep)
 {
 	char *s = va_arg(*ap, char *);
 
-	if (s == NULL)
-		printf("%s(nil)", sep);
-	else
-		printf("%s%s", sep, s);
+	/* print (nil) when s is NULL without using an else */
+	printf("%s%s", sep, (s == NULL ? "(nil)" : s));
 }
 
 
