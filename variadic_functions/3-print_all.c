@@ -42,9 +42,11 @@ static void print_float(va_list *ap, const char *sep)
 static void print_str(va_list *ap, const char *sep)
 {
 	char *s = va_arg(*ap, char *);
+	char *vals[2];
 
-	/* print (nil) when s is NULL without using an else */
-	printf("%s%s", sep, (s == NULL ? "(nil)" : s));
+	vals[0] = "(nil)";
+	vals[1] = s;
+	printf("%s%s", sep, vals[s != NULL]);
 }
 
 
